@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import { Code2, Puzzle, GitBranch, Palette, Film, Github, ArrowUpRight, GraduationCap, BookOpen, Cpu, Mountain } from "lucide-react";
+import { Code2, Puzzle, GitBranch, Palette, Film, Github, Linkedin, Mail, ArrowUpRight, GraduationCap, BookOpen, Cpu, Mountain, Eye, Compass, ShieldCheck, TrendingUp } from "lucide-react";
 import { profile, socials, terraAlert, moreProjects } from "@/data/profile";
 
 export function useReveal() {
@@ -35,14 +35,14 @@ function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 export function Nav() {
-  const links = ["Home", "About", "Skills", "Projects", "Education", "Contact"];
+  const links = ["Home", "About", "Skills", "Mindset", "Projects", "Education", "Contact"];
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav aria-label="Main" className="glass mx-auto flex max-w-6xl items-center justify-between rounded-full px-5 py-3">
         <a href="#home" className="font-display text-lg font-bold">A<span className="text-gradient">T</span>.</a>
         <ul className="flex gap-1 overflow-x-auto text-sm text-muted-foreground">
           {links.map((l) => (
-            <li key={l} className={l === "Home" || l === "Education" ? "max-sm:hidden" : ""}>
+            <li key={l} className={["Home", "Mindset", "Education"].includes(l) ? "max-sm:hidden" : ""}>
               <a href={`#${l.toLowerCase()}`} className="rounded-full px-3 py-1.5 transition-colors hover:text-foreground">{l}</a>
             </li>
           ))}
@@ -118,6 +118,34 @@ export function Skills() {
   );
 }
 
+const principles = [
+  { icon: Eye, t: "Observe before acting", d: "Understand the problem fully before writing a single line of code." },
+  { icon: Compass, t: "Think strategically", d: "Choose the simple path that serves the long-term goal." },
+  { icon: ShieldCheck, t: "Stay disciplined", d: "Small, consistent effort beats occasional bursts of motivation." },
+  { icon: TrendingUp, t: "Improve every day", d: "Learn one new thing, then apply it in a real build." },
+];
+
+export function Mindset() {
+  return (
+    <section id="mindset" className="mx-auto max-w-6xl px-6 py-28">
+      <div className="reveal max-w-2xl">
+        <Eyebrow>Mindset</Eyebrow>
+        <h2 className="text-4xl font-bold sm:text-5xl">Quiet <span className="text-gradient">principles.</span></h2>
+      </div>
+      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {principles.map(({ icon: Icon, t, d }, i) => (
+          <div key={t} className="reveal glass group relative overflow-hidden rounded-3xl p-7" style={{ transitionDelay: `${i * 60}ms` }}>
+            <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <Icon className="h-6 w-6 text-crimson transition-transform duration-500 group-hover:-translate-y-0.5" aria-hidden />
+            <h3 className="mt-5 text-lg font-semibold">{t}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function MountainScene() {
   const stations = [
     { l: "22%", t: "52%" }, { l: "48%", t: "30%" }, { l: "72%", t: "48%" },
@@ -148,7 +176,7 @@ function MountainScene() {
 }
 
 function LinkOrPlaceholder({ url, children, primary }: { url: string; children: ReactNode; primary?: boolean }) {
-  const cls = `inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold ${primary ? "btn-brand" : "glass glow-border"}`;
+  const cls = `inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors ${primary ? "btn-brand" : "glass glow-border hover:text-crimson"}`;
   if (url) return <a href={url} target="_blank" rel="noreferrer" className={cls}>{children}</a>;
   return <span className={`${cls} cursor-not-allowed opacity-60`} title="Link coming soon" aria-disabled="true">{children} <em className="text-[10px] not-italic opacity-80">(soon)</em></span>;
 }
@@ -248,7 +276,15 @@ export function Contact() {
         <Eyebrow>Contact</Eyebrow>
         <h2 className="text-4xl font-bold leading-tight sm:text-6xl">Have an idea? <span className="text-gradient">Let’s build something meaningful.</span></h2>
         <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {socials.map((s) => <LinkOrPlaceholder key={s.label} url={s.url}>{s.label}</LinkOrPlaceholder>)}
+          {socials.map((s) => {
+            const Icon = { GitHub: Github, LinkedIn: Linkedin, Email: Mail }[s.label];
+            return (
+              <LinkOrPlaceholder key={s.label} url={s.url} primary={s.label === "Email"}>
+                {Icon && <Icon className="h-4 w-4" aria-hidden />}
+                {s.label}
+              </LinkOrPlaceholder>
+            );
+          })}
         </div>
       </div>
     </section>
