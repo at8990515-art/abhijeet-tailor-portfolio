@@ -213,10 +213,38 @@ export function Projects() {
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {moreProjects.map((p) => (
             <Tilt key={p.title} className="reveal">
-              <div className="glass glow-border h-full rounded-3xl p-7">
-                <h3 className="text-xl font-semibold">{p.title}</h3>
+              <div className="glass glow-border flex h-full flex-col rounded-3xl p-7">
+                {p.tagline && (
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan">{p.tagline}</p>
+                )}
+                <h3 className="mt-2 text-xl font-semibold">{p.title}</h3>
                 <p className="mt-3 text-muted-foreground">{p.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">{p.tags.map((t) => <span key={t} className="text-xs text-cyan">#{t}</span>)}</div>
+                {p.liveUrl && (
+                  <div className="mt-6 flex flex-wrap gap-3 border-t border-border pt-5">
+                    <a
+                      href={p.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-brand inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5"
+                    >
+                      Live Demo <ArrowUpRight className="h-4 w-4" aria-hidden />
+                    </a>
+                    {p.sourceUrl && (
+                      <a
+                        href={p.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="glass glow-border inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors hover:text-crimson"
+                      >
+                        <Github className="h-4 w-4" aria-hidden /> View Source Code
+                      </a>
+                    )}
+                  </div>
+                )}
+                <p className="mt-4 text-xs text-muted-foreground/70">
+                  Front-end demo — no real checkout or live inventory.
+                </p>
               </div>
             </Tilt>
           ))}
