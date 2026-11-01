@@ -89,6 +89,11 @@ export function Hero() {
             <span className="animate-rise block" style={{ animationDelay: ".2s" }}>{profile.headline[0]}</span>
             <span className="text-gradient animate-rise block" style={{ animationDelay: ".35s" }}>{profile.headline[1]}</span>
           </h1>
+          <p className="animate-rise mt-5 flex items-center justify-center gap-3 text-[11px] font-medium uppercase tracking-[0.35em] text-muted-foreground lg:justify-start" style={{ animationDelay: ".42s" }}>
+            <span aria-hidden className="h-px w-8 bg-crimson/70" />
+            Observe · Strategize · Execute
+            <span aria-hidden className="h-px w-8 bg-crimson/70" />
+          </p>
           <p className="animate-rise mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground lg:mx-0 sm:text-lg" style={{ animationDelay: ".5s" }}>
             {profile.intro}
           </p>
@@ -104,6 +109,16 @@ export function Hero() {
             <div className="animate-spin-slow absolute inset-0 rounded-full border border-emerald/25" style={{ transform: "rotateX(70deg)" }} />
             <div className="absolute inset-[-8%] rounded-full border border-cyan/20 max-md:hidden" style={{ transform: "rotateX(70deg) rotateY(20deg)" }} />
             <div className="absolute inset-[6%] rounded-full border border-dashed border-cyan/20 max-md:hidden" style={{ transform: "rotateY(72deg)" }} />
+          </div>
+          <div aria-hidden className="absolute inset-0 max-md:hidden" style={layer(35)}>
+            <div className="animate-spin-slow absolute inset-[-4%]" style={{ animationDuration: "55s" }}>
+              <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.1" className="animate-spin-slow absolute left-[2%] top-[44%] h-16 w-16 text-cyan/50" style={{ animationDuration: "90s", animationDirection: "reverse" }}>
+                <path d="M50 4 L92 50 L50 96 L8 50 Z" />
+                <path d="M50 4 V96 M8 50 H92" opacity=".7" />
+                <circle cx="50" cy="50" r="2" fill="currentColor" stroke="none" />
+              </svg>
+              <span className="absolute bottom-[4%] right-[18%] h-1.5 w-1.5 rounded-full bg-crimson/80" />
+            </div>
           </div>
           <div aria-hidden className="absolute inset-0 max-md:hidden" style={layer(55)}>
             <div className="glass animate-float absolute left-[2%] top-[14%] h-14 w-14 rotate-12 rounded-2xl" />
