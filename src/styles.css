@@ -34,6 +34,7 @@
   --color-ring: var(--ring);
   --color-emerald: var(--emerald);
   --color-cyan: var(--cyan);
+  --color-crimson: var(--crimson);
   --color-glass: var(--glass);
 }
 
@@ -47,6 +48,7 @@
   --popover-foreground: oklch(0.97 0.01 220);
   --emerald: oklch(0.87 0.18 163);
   --cyan: oklch(0.82 0.15 220);
+  --crimson: oklch(0.52 0.17 18);
   --primary: var(--emerald);
   --primary-foreground: oklch(0.13 0.025 250);
   --secondary: oklch(0.22 0.03 250);

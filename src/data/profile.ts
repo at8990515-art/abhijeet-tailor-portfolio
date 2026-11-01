@@ -13,9 +13,9 @@ export const profile = {
 };
 
 export const socials: { label: string; url: string }[] = [
-  { label: "GitHub", url: "" },
-  { label: "LinkedIn", url: "" },
-  { label: "Email", url: "" }, // e.g. "mailto:you@example.com"
+  { label: "GitHub", url: "" }, // real GitHub profile URL still needed
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/abhijeet-tailor-23207b441" },
+  { label: "Email", url: "mailto:tailorabhijeet11sp@gmail.com" },
 ];
 
 export const terraAlert = { githubUrl: "", projectUrl: "" };
