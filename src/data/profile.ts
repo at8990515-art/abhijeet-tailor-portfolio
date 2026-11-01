@@ -20,5 +20,24 @@ export const socials: { label: string; url: string }[] = [
 
 export const terraAlert = { githubUrl: "", projectUrl: "" };
 
+export type MoreProject = {
+  title: string;
+  tagline?: string;
+  description: string;
+  tags: string[];
+  liveUrl?: string;
+  sourceUrl?: string;
+};
+
 // Add real projects here; the grid stays hidden while this list is empty.
-export const moreProjects: { title: string; description: string; tags: string[]; url?: string }[] = [];
+export const moreProjects: MoreProject[] = [
+  {
+    title: "KAGE — Strategic Commerce",
+    tagline: "Observe. Calculate. Choose.",
+    description:
+      "A minimalist, responsive e-commerce storefront built with HTML, CSS and JavaScript. Features include product search, category filtering, cart interactions and a value-based product recommendation system.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "https://at8990515-art.github.io/kage-strategic-commerce/",
+    sourceUrl: "https://github.com/at8990515-art/kage-strategic-commerce",
+  },
+];
