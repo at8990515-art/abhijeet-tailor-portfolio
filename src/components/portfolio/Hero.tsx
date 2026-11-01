@@ -76,8 +76,8 @@ export function Hero() {
         <canvas ref={canvas} className="absolute inset-0 h-full w-full" />
       </div>
 
-      <div ref={scene} className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 lg:grid-cols-[1.1fr_1fr]">
-        <div className="relative z-10 order-2 text-center lg:order-1 lg:text-left">
+      <div ref={scene} className="relative mx-auto grid w-full max-w-7xl items-center gap-8 lg:gap-14 px-6 lg:grid-cols-[1.1fr_1fr]">
+        <div className="relative z-10 order-2 min-w-0 text-center lg:order-1 lg:text-left">
           <span className="glass animate-rise inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium tracking-wide text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald shadow-[var(--glow-emerald)]" />
             GITS Udaipur · B.Tech CSE
@@ -85,7 +85,7 @@ export function Hero() {
           <p className="animate-rise mt-6 text-lg text-muted-foreground" style={{ animationDelay: ".1s" }}>
             Hi, I’m <span className="font-semibold text-foreground">{profile.name}</span>
           </p>
-          <h1 className="mt-3 text-5xl font-extrabold leading-[0.95] sm:text-6xl xl:text-7xl">
+          <h1 className="mt-3 text-[2.4rem] font-extrabold leading-[0.95] sm:text-6xl xl:text-7xl">
             <span className="animate-rise block" style={{ animationDelay: ".2s" }}>{profile.headline[0]}</span>
             <span className="text-gradient animate-rise block" style={{ animationDelay: ".35s" }}>{profile.headline[1]}</span>
           </h1>
