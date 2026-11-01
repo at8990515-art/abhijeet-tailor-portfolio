@@ -42,10 +42,12 @@ function Index() {
   useReveal();
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <CursorRing />
       <Nav />
       <main>
         <Hero />
         <About />
+        <Mindset />
         <Skills />
         <Projects />
         <Education />
